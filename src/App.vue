@@ -4,8 +4,21 @@
       <input type="text" placeholder="Search Book">
       <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </header>
+    <main>
+      <bookCards></bookCards>
+    </main>
   </div>
 </template>
+
+<script>
+import bookCards from './components/book-cards.vue';
+export default{
+  components:{
+    bookCards
+  }
+
+}
+</script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Kotta+One&family=Orbitron:wght@400;500&display=swap');

@@ -1,19 +1,54 @@
 <template>
   <div id="app">
     <header>
-
-
+      <input type="text" placeholder="Search Book">
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </header>
   </div>
 </template>
 
 <style lang="scss">
-body{
-  width: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Kotta+One&family=Orbitron:wght@400;500&display=swap');
+
+body {
+  width: 100wv;
   background: #EADDFF;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  height: 50px;
+  background: #6750A4;
+
+  input {
+    width: 30%;
+    background: #EADDFF;
+    padding-left: 10px;
+    height: 25px;
+    border: none;
+    border: {
+      radius : 5px 0px 0px 5px
+    }
+    font-family: 'Kotta One', serif;
+    outline: none;
+  }
+
+  button {
+    height: 27px;
+    padding: 0px 15px;
+    background: #FFD8E4;
+    border: none;
+    cursor: pointer;
+    color: #21005D;
+
+    border: {
+      radius: 0px 5px 5px 0px
+    }
+  }
+}
 </style>

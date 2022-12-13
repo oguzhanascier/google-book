@@ -7,21 +7,30 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     search: "",
+    books: [],
   },
   getters: {},
   mutations: {
- 
+    createBooks(state, book) {
+      state.books = book;
+    },
   },
   actions: {
-    getAPI() {
+    getAPI({ commit }) {
       axios
         .get(
           "https://www.googleapis.com/books/v1/volumes?q=english&key=AIzaSyAXj8Lh7xnbblNxlI1m-pIuRq-3mayhb6s"
         )
         .then((response) => {
-          response.data.items.map((item) => {
-            console.log(item.volumeInfo.title);
-          });
+            // let book = response;
+            // commit("createBooks", book);
+            // console.log(response.volumeInfo.subtitle);
+            for (let i = 0; i < response.data.items.length; i++) {
+              let item = response.data.items[i];
+              console.log(item.volumeInfo.title);
+              let book = response;
+              commit("createBooks", book);
+            }
         })
         .catch((error) => {
           console.log(error);

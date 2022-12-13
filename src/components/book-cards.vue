@@ -2,8 +2,7 @@
     <div class="container">
         <div class="card">
             <div class="image">
-                <img src="https://books.google.com/books/content?id=ZqO7wRZjZQQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
-                    alt="">
+                <img src="https://books.google.com/books/content?id=ZqO7wRZjZQQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" alt="">
             </div>
             <h4>Header</h4>
             <a href="">More Read</a>
@@ -66,13 +65,13 @@ export default {
         transform: translate(-48%);
         text-decoration: none;
         color: #E8DEF8;
-        font-size:  18px;
+        font-size: 18px;
         transition: all .7s ease-in-out;
         background: #6750A4;
         width: 120%;
         height: 80px;
 
-       
+
     }
 
     &:hover a {

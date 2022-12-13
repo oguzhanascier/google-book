@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <input type="text" placeholder="Search Book">
+      <input type="text" placeholder="Search Book" v-model="search">
       <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </header>
     <main>
@@ -12,9 +12,19 @@
 
 <script>
 import bookCards from './components/book-cards.vue';
+
 export default{
+  data(){
+    return{
+      search:''
+    }
+  },
   components:{
     bookCards
+  },
+  computed:{
+
+
   }
 
 }

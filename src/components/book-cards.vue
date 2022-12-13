@@ -1,19 +1,28 @@
 <template>
     <div class="container">
-        <div class="card">
+        <div class="card" v-for="book in books.data.items" :key="book.title">
             <div class="image">
-                <img src="https://books.google.com/books/content?id=ZqO7wRZjZQQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" alt="">
+                <img :src="book.volumeInfo.imageLinks.smallThumbnail"
+                    alt="">
             </div>
-            <h4>Header</h4>
+            <h4>{{book.volumeInfo.title}}</h4>
             <a href="">More Read</a>
         </div>
-
+        
     </div>
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex';
 
+export default {
+    computed: {
+        ...mapState(['books'])
+
+    },
+    created() {
+        this.$store.dispatch('getAPI')
+    }
 }
 </script>
 
@@ -34,7 +43,7 @@ export default {
     flex-direction: column;
     text-align: center;
     width: 16%;
-    height: 250px;
+    height: 350px;
     padding-bottom: 30px;
     background: #F3EDF7;
     border-radius: 20px;
@@ -44,12 +53,12 @@ export default {
 
     img {
         width: 100%;
-        height: 200px;
+        height: 250px;
     }
 
     h4 {
-        font-size: 24px;
-        margin: 0;
+        font-size: 18px;
+        margin-top: 10px;
         padding: 10px;
     }
 
@@ -60,7 +69,7 @@ export default {
         position: absolute;
         left: 50%;
         bottom: -91px;
-
+        padding: 10px;
         margin-top: 10px;
         transform: translate(-48%);
         text-decoration: none;
@@ -69,13 +78,13 @@ export default {
         transition: all .7s ease-in-out;
         background: #6750A4;
         width: 120%;
-        height: 80px;
+        height: 90px;
 
 
     }
 
     &:hover a {
-        bottom: 0;
+        bottom: 25px;
     }
 }
 </style>

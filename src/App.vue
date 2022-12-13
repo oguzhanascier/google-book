@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <input type="text" placeholder="Search Book" v-model="search">
-      <button @click="getAPI"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </header>
     <main>
       <bookCards></bookCards>
@@ -12,27 +12,16 @@
 
 <script>
 import bookCards from './components/book-cards.vue';
-import { mapActions } from 'vuex';
 export default {
+  components: { bookCards },
   data() {
     return {
       search: ''
     }
   },
-  methods: {
-    ...mapActions(["getAPI"]),
+  methods: {},
 
 
-
-  },
-
-  components: {
-    bookCards
-  },
-  computed: {
-
-
-  }
 
 }
 </script>

@@ -12,13 +12,23 @@ export default new Vuex.Store({
     
   },
   mutations: {
-    getAPI(){
-      axios('https://www.googleapis.com/books/v1/volumes?q=2022&key=AIzaSyAXj8Lh7xnbblNxlI1m-pIuRq-3mayhb6s').then((res)=>{
-        console.log(res);
-      })
-    }
+    getAPI() {
+      axios('https://www.googleapis.com/books/v1/volumes?q=english&key=AIzaSyAXj8Lh7xnbblNxlI1m-pIuRq-3mayhb6s')
+        .then((response) => {
+          for (let i = 0; i < response.data.items.length; i++) {
+            let item = response.data.items[i];
+            console.log(item.volumeInfo.title);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   actions: {
+    getAPI({commit}){
+      commit('getAPI')
+    }
    
   },
   modules: {

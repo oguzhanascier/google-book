@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <input type="text" placeholder="Search Book" v-model="search">
-      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button @click="getAPI"><i class="fa-solid fa-magnifying-glass"></i></button>
     </header>
     <main>
       <bookCards></bookCards>
@@ -12,17 +12,22 @@
 
 <script>
 import bookCards from './components/book-cards.vue';
-
-export default{
-  data(){
-    return{
-      search:''
+import { mapActions } from 'vuex';
+export default {
+  data() {
+    return {
+      search: ''
     }
   },
-  components:{
+  methods: {
+    ...mapActions(["getAPI"]),
+
+  },
+
+  components: {
     bookCards
   },
-  computed:{
+  computed: {
 
 
   }
@@ -54,10 +59,13 @@ header {
     padding-left: 10px;
     height: 25px;
     border: none;
+
     border: {
-      radius : 5px 0px 0px 5px
+      radius: 5px 0px 0px 5px
     }
-    font-family: 'Kotta One', serif;
+
+    font-family: 'Kotta One',
+    serif;
     outline: none;
   }
 

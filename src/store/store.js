@@ -29,7 +29,7 @@ export default new Vuex.Store({
               let item = response.data.items[i];
               console.log(item.volumeInfo.title);
               let book = response;
-              commit("createBooks", book);
+              commit("createBooks", book.data.items);
             }
         })
         .catch((error) => {

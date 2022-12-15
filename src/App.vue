@@ -5,15 +5,15 @@
       <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </header>
     <main>
-      <bookCards></bookCards>
+      <router-view></router-view>
+
     </main>
   </div>
 </template>
 
 <script>
-import bookCards from './components/book-cards.vue';
+
 export default {
-  components: { bookCards },
   data() {
     return {
       search: ''

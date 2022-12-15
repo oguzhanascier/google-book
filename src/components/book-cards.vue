@@ -1,12 +1,12 @@
 <template>
     <div class="container">
-        <div class="card" v-for="book in books.data.items" :key="book.title">
+        <div class="card" v-for="book in books" :key="book.title">
             <div class="image">
-                <img :src="book.volumeInfo.imageLinks.smallThumbnail"
-                    alt="">
+                <img :src="book.volumeInfo.imageLinks.smallThumbnail" alt="">
             </div>
             <h4>{{book.volumeInfo.title}}</h4>
-            <a href="">More Read</a>
+           <router-link tag="a" :to="`/details/${book.id}`">More Details</router-link>
+         
         </div>
         
     </div>
@@ -16,6 +16,12 @@
 import { mapState } from 'vuex';
 
 export default {
+    data(){
+        return{
+           
+        }
+    },
+
     computed: {
         ...mapState(['books'])
 
@@ -38,6 +44,7 @@ export default {
     margin-top: 50px;
     margin: 50px;
     position: relative;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
@@ -47,7 +54,6 @@ export default {
     padding-bottom: 30px;
     background: #F3EDF7;
     border-radius: 20px;
-    overflow: hidden;
     color: #1D192B;
     filter: drop-shadow(2px 2px 14px #A8ABA9);
 
@@ -67,7 +73,7 @@ export default {
         justify-content: center;
         align-items: center;
         position: absolute;
-        left: 50%;
+        left: 48%;
         bottom: -91px;
         padding: 10px;
         margin-top: 10px;
@@ -77,7 +83,7 @@ export default {
         font-size: 18px;
         transition: all .7s ease-in-out;
         background: #6750A4;
-        width: 120%;
+        width: 92%;
         height: 90px;
 
 

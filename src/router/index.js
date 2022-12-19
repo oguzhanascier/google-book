@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: "", component: bookCards },
-  { path: "/:id/details", component: bookDetails },
+  { path: "/details/:id", component: bookDetails },
 ];
 
 const router = new VueRouter({

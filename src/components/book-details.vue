@@ -1,13 +1,15 @@
 <template>
-    <div class="details" >
-        <div v-for="book in detail" :key="book.title">
-            <img :src="book.img" width="100%"
-                height="100%" alt="">
-            <div class="text" >
-                <h3>{{book.title}}</h3>
-                <span>{{book.author}}</span>
-                <p class="desc" >
-                    {{ book.desc }}                    
+    <div class="details">
+        <div class="book" v-for="book in detail" :key="book.title">
+            <div class="top">
+                <img :src="book.img" width="100%" height="100%" alt="">
+                <h3>{{ book.title }}</h3>
+                <span>{{ book.author }}</span>
+            </div>
+            <div class="text">
+
+                <p class="desc">
+                    {{ book.desc }}
                 </p>
                 <router-link tag="a" to="/">Back</router-link>
             </div>
@@ -21,26 +23,26 @@ import { mapState } from 'vuex';
 export default {
     data() {
         return {
-            detail:[]
+            detail: []
         }
     },
-   
+
     computed: {
         ...mapState(['books'])
     },
     created() {
         this.$store.dispatch('getAPI')
         this.books.forEach(book => {
-            if(book.id === this.$route.params.id){
+            if (book.id === this.$route.params.id) {
                 this.detail.push({
-                    title:book.volumeInfo.title,
-                    desc:book.volumeInfo.description,
-                    author:book.volumeInfo.authors[0],
-                    img:book.volumeInfo.imageLinks.thumbnail
+                    title: book.volumeInfo.title,
+                    desc: book.volumeInfo.description,
+                    author: book.volumeInfo.authors[0],
+                    img: book.volumeInfo.imageLinks.thumbnail
                 })
 
                 console.log(book.volumeInfo.imageLinks.thumbnail);
-                
+
             }
         })
     }
@@ -61,6 +63,7 @@ export default {
 
 
 }
+
 
 a {
     position: absolute;
@@ -98,6 +101,7 @@ a {
 img {
     margin-top: 30px;
     width: 300px;
+    height: 300px;
     border-radius: 30px;
 }
 </style>

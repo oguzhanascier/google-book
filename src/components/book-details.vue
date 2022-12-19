@@ -3,7 +3,7 @@
         <div class="book" v-for="book in detail" :key="book.title">
             <div class="top">
                 <img :src="book.img" width="100%" height="100%" alt="">
-                <div class="topText">
+                <div class="topText" style="width:300px ;">
                     <h3>{{ book.title }}</h3>
                     <span>{{ book.author }}</span>
                 </div>
@@ -55,7 +55,7 @@ export default {
 .details {
     display: flex;
     justify-content: center;
-    width: 100vw;
+  
 }
 
 .desc {

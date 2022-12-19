@@ -1,6 +1,8 @@
 <template>
     <div class="container">
+
         <div class="card" v-for="book in books" :key="book.title">
+            
             <div class="image">
                 <img :src="book.volumeInfo.imageLinks.smallThumbnail" alt="">
             </div>
@@ -8,7 +10,7 @@
            <router-link tag="a" :to="`/details/${book.id}`">More Details</router-link>
          
         </div>
-        
+
     </div>
 </template>
 

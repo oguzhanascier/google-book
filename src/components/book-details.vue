@@ -1,9 +1,9 @@
 <template>
-    <div class="details">
-        <div>
-            <!-- <img src="" width="100%"
-                height="100%" alt=""> -->
-            <div class="text" v-for="book in detail" :key="book.title">
+    <div class="details" >
+        <div v-for="book in detail" :key="book.title">
+            <img :src="book.img" width="100%"
+                height="100%" alt="">
+            <div class="text" >
                 <h3>{{book.title}}</h3>
                 <span>{{book.author}}</span>
                 <p class="desc" >
@@ -35,8 +35,11 @@ export default {
                 this.detail.push({
                     title:book.volumeInfo.title,
                     desc:book.volumeInfo.description,
-                    author:book.volumeInfo.authors[0]
+                    author:book.volumeInfo.authors[0],
+                    img:book.volumeInfo.imageLinks.thumbnail
                 })
+
+                console.log(book.volumeInfo.imageLinks.thumbnail);
                 
             }
         })

@@ -3,8 +3,10 @@
         <div class="book" v-for="book in detail" :key="book.title">
             <div class="top">
                 <img :src="book.img" width="100%" height="100%" alt="">
-                <h3>{{ book.title }}</h3>
-                <span>{{ book.author }}</span>
+                <div class="topText">
+                    <h3>{{ book.title }}</h3>
+                    <span>{{ book.author }}</span>
+                </div>
             </div>
             <div class="text">
 
@@ -67,7 +69,7 @@ export default {
 
 a {
     position: absolute;
-    top: 30px;
+    top: -30px;
     right: 40px;
     display: inline-flex;
     justify-content: center;
@@ -88,18 +90,26 @@ a {
 
 }
 
+.top {
+    display: flex;
+}
+
 .text {
     position: relative;
 
     display: flex;
-    flex-direction: column-reverse;
 
 
 }
 
+.topText{
+  margin: 20px;
+ }
+
 
 img {
     margin-top: 30px;
+    margin-left: 25px ;
     width: 300px;
     height: 300px;
     border-radius: 30px;

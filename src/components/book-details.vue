@@ -1,14 +1,17 @@
 <template>
-    <div class="details" >
-    <div>
-        <img src="https://i.pinimg.com/736x/54/b8/23/54b82306f8ddde048724e8f6342003bc.jpg" width="100%" height="100%"
-        alt="">
-        <div class="text"  >
-            <p class="desc">
-            </p>
-            <router-link tag="a" to="/">Back</router-link>
+    <div class="details">
+        <div>
+            <!-- <img src="" width="100%"
+                height="100%" alt=""> -->
+            <div class="text" v-for="book in detail" :key="book.title">
+                <h3>{{book.title}}</h3>
+                <span>{{book.author}}</span>
+                <p class="desc" >
+                    {{ book.desc }}                    
+                </p>
+                <router-link tag="a" to="/">Back</router-link>
+            </div>
         </div>
-    </div>
     </div>
 </template>
 
@@ -16,11 +19,27 @@
 import { mapState } from 'vuex';
 
 export default {
+    data() {
+        return {
+            detail:[]
+        }
+    },
+   
     computed: {
         ...mapState(['books'])
     },
     created() {
         this.$store.dispatch('getAPI')
+        this.books.forEach(book => {
+            if(book.id === this.$route.params.id){
+                this.detail.push({
+                    title:book.volumeInfo.title,
+                    desc:book.volumeInfo.description,
+                    author:book.volumeInfo.authors[0]
+                })
+                
+            }
+        })
     }
 }
 </script>
@@ -53,8 +72,8 @@ a {
     width: 100px;
     border-radius: 5px;
 
-    &:hover{
-    background: #7657cd;
+    &:hover {
+        background: #7657cd;
 
 
     }
@@ -73,7 +92,7 @@ a {
 }
 
 
-img{
+img {
     margin-top: 30px;
     width: 300px;
     border-radius: 30px;
